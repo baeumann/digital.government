@@ -6,7 +6,7 @@ class GridWandererEntity extends SocietyEntity {
         this.height = height;
         this.startPosition = startPosition;
         this.currentLocation = startPosition;
-        this.maximumSpeed = 15;
+        this.maximumSpeed = 10;
         this.speed = 4;
         this.angle = 0;
         this.trail = new Array();
@@ -81,7 +81,7 @@ class GridWandererEntity extends SocietyEntity {
         if(this.trail.length > 0 && this.currentLocation.distance(this.trail[this.trail.length-1]) > 2 || this.trail.length == 0) {
             this.trail.push(new Vector2(this.currentLocation.x, this.currentLocation.y));
 
-            if(this.trail.length > 2) {
+            if(this.trail.length > 3) {
                 this.trail.shift();
             }
         }

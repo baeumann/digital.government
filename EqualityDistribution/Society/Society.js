@@ -1,32 +1,10 @@
-const HUMAN_MAX_CAPITAL = 10000;
-const MINIMUM_WAGE = 1000;
-const GOVERMENT_MAX_CAPITAL = 1000000;
-const TAX_RATE = 0.12;
-const EMERGENCY_AID_THRESHOLD = 1;
-
-const MONTHLY_TICK_THRESHOLD = 30;
-
-const PEOPLE_AMOUNT = 500;
-
-const TELEMETRY_TEXT_POSITION_X = 500;
-const TELEMETRY_TEXT_POSITION_Y = 80;
-
-const TICK_INTERVAL = 100;
-
-const QMM_COLOR = new SimpleColor(224, 162, 36);
-const QOD_COLOR = new SimpleColor(100, 62, 214);
-const TQE_COLOR = new SimpleColor(50, 168, 82);
-
-const DEFAULT_DATA_COLOR = new SimpleColor(32,162,173);
-const BACKGROUND_COLOR = new SimpleColor(28,30,38);
-
-
-
 class Society extends DrawEntity {
 
 
     constructor(gridCanvas) {
         super();
+        this.modifier = new SocietyModifier();
+
         this.firstRun = true;
         this.monthlyProgress = 0;
         this.startTime = performance.now();
@@ -140,6 +118,9 @@ class Society extends DrawEntity {
         console.log("People Created > " + this.people.length);
     }
 
+    surplusCut() {
+        this.people.forEach(person => person.limitCheck());
+    }
 
     update(delta) {
         //tick
@@ -215,7 +196,7 @@ class Society extends DrawEntity {
             let currentColor = currentPerson.calculateColorForCapital();
 
             //trail
-            
+            /*
             let currentTrail = currentPerson.interpolatedTrail();
             for(var j = 0; j < currentTrail.length; j++) {
                 let intensity = 1 - (j / currentTrail.length);
@@ -231,7 +212,7 @@ class Society extends DrawEntity {
             }
 
             //entity
-            /*
+            
             let fadedColor = color(currentColor._getRed(), currentColor._getGreen(), currentColor._getBlue());
             fadedColor.setAlpha(200);
 

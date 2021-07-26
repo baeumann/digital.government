@@ -18,7 +18,7 @@ function setup() {
 }
 
 function prepareGridCanvas() {
-  gridCanvas = createImage(150, 150);
+  gridCanvas = createImage(100, 100);
   gridCanvas.loadPixels();
 
   clearGridCanvas();
@@ -44,9 +44,9 @@ function draw() {
     startTime = performance.now();
   }
 
-  //fill(0);
-  //textAlign(LEFT);
-  //textSize(9);
-  //text("FPS: " + currentFrameRate, 5, 10);
+  fill(0);
+  textAlign(LEFT);
+  textSize(9);
+  text("FPS: " + currentFrameRate, 5, 10);
 
 }

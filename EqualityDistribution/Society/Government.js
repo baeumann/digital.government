@@ -22,15 +22,33 @@ class Government extends SocietyEntity {
     }
 
     dailyAction() {
-        this.capital -= 20000;
+        //general cost per person
+        this.capital -= 1*this.society.people.length;
     }
 
     monthlyAction() {
-        this.spendPeoplePot();
-        this.emergencyPeopleAid();
+        this.spendActions();
+        this.checkQualityOfEconomy();
     }
 
-    emergencyPeopleAid() {
+    checkQualityOfEconomy() {
+        if(this.society.totalQualityOfEconomy < 0.6) {
+            this.society.modifier.sequeezeCapitalLimit();
+
+            //re-supply money
+            this.society.surplusCut();
+            this.spendActions();
+        } else {
+            this.society.modifier.resetCapitalLimit();
+        }
+    }
+
+    spendActions() {
+        this.spendPeoplePot();
+        this.emergencySpend();
+    }
+
+    emergencySpend() {
         let amountOfEligiblePeople = 0;
 
         for(var i = 0; i < this.society.people.length; i++) {
