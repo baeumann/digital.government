@@ -34,7 +34,7 @@ class Human extends GridWandererEntity{
 
         if(this.success > 0.2) {
             //basic deposit on possible maximum (needs to retain stable)
-            this.deposit(MINIMUM_WAGE + HUMAN_MAX_CAPITAL*this.success*0.5);
+            this.deposit(MINIMUM_WAGE + HUMAN_MAX_CAPITAL*this.success*0.2);
         } 
         //below 0.2 earns no money besides the pot money (unemployed)
     }

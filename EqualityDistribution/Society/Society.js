@@ -16,6 +16,7 @@ class Society extends DrawEntity {
         this.qualityOfDistributionProgressBar;
 
         this.totalQualityOfEconomyPlot;
+        this.capitalLimitPlot;
 
         this.government = new Government(GOVERMENT_MAX_CAPITAL, 0, 0, this);
         this.people = new Array();
@@ -34,7 +35,6 @@ class Society extends DrawEntity {
 
         this.gridCanvas = gridCanvas;
 
-
         this.createPeople();
         this.createProgressBars();
         this.createPlots();
@@ -46,6 +46,14 @@ class Society extends DrawEntity {
             "Time",
             "TQE (%)",
             700
+        );
+
+        this.capitalLimitPlot = new Plot(
+            new Rectangle(TELEMETRY_TEXT_POSITION_X+250, TELEMETRY_TEXT_POSITION_Y+420, 300, 80),
+            "Time",
+            "MAX CAPITAL",
+            700,
+            color(251, 105, 43)
         );
     }
 
@@ -399,6 +407,9 @@ class Society extends DrawEntity {
         //real time plotting
         this.totalQualityOfEconomyPlot.add(Math.round(this.totalQualityOfEconomy*100));
         this.totalQualityOfEconomyPlot.update(delta);
+
+        this.capitalLimitPlot.add(Math.round(this.modifier.getCapitalLimit()));
+        this.capitalLimitPlot.update(delta);
     }
 
     drawDataInfo(x, y, _textSize, color, value, label, initialOffset) {

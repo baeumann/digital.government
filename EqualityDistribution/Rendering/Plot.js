@@ -1,5 +1,5 @@
 class Plot extends DrawEntity {
-    constructor(locationAndSize, xLabel, yLabel, maximumEntries) {
+    constructor(locationAndSize, xLabel, yLabel, maximumEntries, plotColor) {
         super();
         this.rectangle = locationAndSize;
         this.xLabel = xLabel;
@@ -8,6 +8,11 @@ class Plot extends DrawEntity {
         this.entries = new Array(this.maximumEntries);
         this.currentEntryIndex = 0;
         this.entryMaximum = 0;
+        if(plotColor != undefined && plotColor != null) {
+            this.plotColor = plotColor;
+        } else {
+            this.plotColor = color(32,162,173);
+        }
     }
 
     add(entry) {
@@ -62,7 +67,8 @@ class Plot extends DrawEntity {
 
         let axisColor = color(90,90,90);
         fill(axisColor);
-        textSize(9);
+        textSize(10);
+
         smooth();
 
         //draw entries
@@ -73,9 +79,8 @@ class Plot extends DrawEntity {
             this.rectangle.y-5
         );
 
-        let plotColor = color(32,162,173);
         noFill();
-        stroke(plotColor);
+        stroke(this.plotColor);
         strokeWeight(1.8);
         beginShape();
 
@@ -85,7 +90,7 @@ class Plot extends DrawEntity {
         
         endShape();
         strokeWeight(0);
-        fill(plotColor);
+        fill(this.plotColor);
         //draw endpoint of plot, using the last coordinates of entries
 
         let currentEndX = this.calculatePlotX(this.currentEntryIndex);
@@ -134,6 +139,7 @@ class Plot extends DrawEntity {
             -1, 
             5
         );
+
         pop();
     }
 }

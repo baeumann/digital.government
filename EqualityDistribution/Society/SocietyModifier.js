@@ -28,7 +28,7 @@ class SocietyModifier {
         this.capitalLevels = new Array(
             HUMAN_MAX_CAPITAL,
             HUMAN_MAX_CAPITAL * 0.9,
-            HUMAN_MAX_CAPITAL * 0.5,
+            HUMAN_MAX_CAPITAL * 0.6,
             HUMAN_MAX_CAPITAL * 0.1
         );
 
