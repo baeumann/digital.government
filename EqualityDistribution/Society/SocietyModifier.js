@@ -38,7 +38,7 @@ class SocietyModifier {
     sequeezeCapitalLimit() {
         this.currentCapitalLevel++;
         if(this.currentCapitalLevel >= this.capitalLevels.length) {
-            this.currentCapitalLevel = capitalLevels.length -1;
+            this.currentCapitalLevel = this.capitalLevels.length -1;
         }
     }
 
