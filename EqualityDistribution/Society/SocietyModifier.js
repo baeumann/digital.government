@@ -29,7 +29,6 @@ class SocietyModifier {
             HUMAN_MAX_CAPITAL,
             HUMAN_MAX_CAPITAL * 0.9,
             HUMAN_MAX_CAPITAL * 0.6,
-            HUMAN_MAX_CAPITAL * 0.2,
             HUMAN_MAX_CAPITAL * 0.1
         );
 
