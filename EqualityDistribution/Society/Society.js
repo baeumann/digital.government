@@ -372,7 +372,7 @@ class Society extends DrawEntity {
             70
         );
 
-        this.qualityOfDistributionProgressBar.updateMetrics(this.qualityOfDistribution, "Quality of captial distribution", this.averageMoneyPerPerson /HUMAN_MAX_CAPITAL, this.optimalMoneyPerPerson/HUMAN_MAX_CAPITAL);
+        this.qualityOfDistributionProgressBar.updateMetrics(this.qualityOfDistribution, "Quality of captial distribution", this.averageMoneyPerPerson / this.modifier.getCapitalLimit(), this.optimalMoneyPerPerson/ this.modifier.getCapitalLimit());
         this.qualityOfDistributionProgressBar.update(delta);
 
         this.drawDataInfo(
@@ -395,13 +395,13 @@ class Society extends DrawEntity {
             70
         );
 
-        this.qualityOfPersonCaptialSpreadProgressBar.updateMetrics(this.qualityOfPersonCaptialSpread, "Quality of min/max spread", this.minimumPersonCaptial /HUMAN_MAX_CAPITAL, this.maxiumumPersonCaptial /HUMAN_MAX_CAPITAL);
+        this.qualityOfPersonCaptialSpreadProgressBar.updateMetrics(this.qualityOfPersonCaptialSpread, "Quality of min/max spread", this.minimumPersonCaptial / this.modifier.getCapitalLimit(), this.maxiumumPersonCaptial / this.modifier.getCapitalLimit());
         this.qualityOfPersonCaptialSpreadProgressBar.update(delta);
 
         this.totalQualityOfEconomyProgressBar.updateMetrics(this.totalQualityOfEconomy, "Total quality of economy", 0.60, 0.60);
         this.totalQualityOfEconomyProgressBar.update(delta);
 
-        this.monthlyProgressBar.updateMetrics(this.monthlyProgress/MONTHLY_TICK_THRESHOLD, "Day " + this.monthlyProgress);
+        this.monthlyProgressBar.updateMetrics(this.monthlyProgress / MONTHLY_TICK_THRESHOLD, "Day " + this.monthlyProgress);
         this.monthlyProgressBar.update(delta);
 
         //real time plotting
