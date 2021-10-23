@@ -26,7 +26,7 @@ class Human extends GridWandererEntity{
     dailyAction() {
         super.dailyAction();
 
-        this.withdraw(MINIMUM_WAGE*this.success*0.033 + this.capital*Math.random()*0.02);
+        this.withdraw(MINIMUM_WAGE*this.success*0.033 + this.capital*Math.random()*0.08);
     }
 
     monthlyAction() {

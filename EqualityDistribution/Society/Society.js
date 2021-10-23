@@ -238,7 +238,7 @@ class Society extends DrawEntity {
 
         gridCanvas.updatePixels();
 
-        image(gridCanvas, 40, 60, 400, 400);
+        image(gridCanvas, 40, 60, 150, 150);
     }
 
     clearGridCanvas() {

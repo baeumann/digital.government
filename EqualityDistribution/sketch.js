@@ -18,7 +18,7 @@ function setup() {
 }
 
 function prepareGridCanvas() {
-  gridCanvas = createImage(100, 100);
+  gridCanvas = createImage(50, 50);
   gridCanvas.loadPixels();
 
   clearGridCanvas();

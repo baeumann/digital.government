@@ -6,7 +6,7 @@ const EMERGENCY_AID_THRESHOLD = 1;
 
 const MONTHLY_TICK_THRESHOLD = 30;
 
-const PEOPLE_AMOUNT = 2500;
+const PEOPLE_AMOUNT = 1000;
 
 const TELEMETRY_TEXT_POSITION_X = 500;
 const TELEMETRY_TEXT_POSITION_Y = 80;
@@ -29,6 +29,7 @@ class SocietyModifier {
             HUMAN_MAX_CAPITAL,
             HUMAN_MAX_CAPITAL * 0.9,
             HUMAN_MAX_CAPITAL * 0.6,
+            HUMAN_MAX_CAPITAL * 0.2,
             HUMAN_MAX_CAPITAL * 0.1
         );
 
